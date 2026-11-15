@@ -1,0 +1,1 @@
+{"n_truth": 1, "tp_loose": 1, "tp_strict": 1, "fp": 0, "fn_loose": 0, "au_precision": 0.0, "au_recall": 0.0, "au_f1": 0.0, "exact_sets": 0, "n_matched": 1, "rows": [{"truth": [12], "pred": [], "event": "e3", "status": "micro"}], "amplitudes": [], "amp_covered": 0, "blink_false_alarms": 0, "false_alarm_details": [], "apex_errors": [-0.013333333333333197]}

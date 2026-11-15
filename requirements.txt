@@ -1,0 +1,19 @@
+# ONSET: Python 3.11+ (developed and tested on 3.13)
+
+# --- the instrument (CPU only; no PyTorch, no GPU, no network at run time)
+numpy>=2.0
+scipy>=1.13
+opencv-python-headless>=5.0     # tested on 5.0.0; the face models are read with cv2.dnn.readNetFromTFLite
+flask>=3.0
+
+# --- the learning harness (python -m onset.learn.run)
+pandas>=2.2
+openpyxl>=3.1                   # the datasets' annotation sheets are .xlsx
+scikit-learn>=1.4               # linear model and negative controls
+
+# --- optional: the graph-temporal network in the learning harness
+# torch>=2.2
+
+# --- development
+pytest>=8.0
+# ffmpeg (system package, not pip) is only needed to rebuild the specimen videos

@@ -1,0 +1,1388 @@
+{
+ "kind": "learning_run",
+ "name": "synthetic_check",
+ "title": "Learning run: synthetic_check",
+ "synthetic": true,
+ "note": "Synthetic data: procedural faces with scripted movements and invented labels, laid out like CASME II. This run checks that the folds, models, calibration and controls are wired correctly. It is not a benchmark and says nothing about human micro-expressions.",
+ "created": "2026-11-12T21:34:26+00:00",
+ "scheme": "casme2_5",
+ "protocol": "loso",
+ "classes": [
+  "happiness",
+  "disgust",
+  "surprise",
+  "repression",
+  "others"
+ ],
+ "n_folds": 12,
+ "seeds": [
+  0,
+  1
+ ],
+ "data": {
+  "classes": [
+   "happiness",
+   "disgust",
+   "surprise",
+   "repression",
+   "others"
+  ],
+  "class_counts": [
+   9,
+   16,
+   9,
+   8,
+   30
+  ],
+  "n_clips": 72,
+  "n_subjects": 12,
+  "per_dataset": {
+   "casme2": {
+    "clips": 72,
+    "subjects": 12,
+    "classes": [
+     9,
+     16,
+     9,
+     8,
+     30
+    ]
+   }
+  },
+  "excluded_by_scheme": 0,
+  "excluded_labels": {},
+  "measurement_failures": 0,
+  "annotation_problems": 0,
+  "annotation_sha256": {
+   "casme2": "9727d23d9ac603b9bf468fb7b2704a78b915e08f0297347ef2b9955811a559bb"
+  }
+ },
+ "audit": {
+  "ok": true,
+  "warnings": []
+ },
+ "columns": [
+  "model",
+  "what it is",
+  "UF1 (95 % CI)",
+  "UAR (95 % CI)",
+  "accuracy (95 % CI)",
+  "ECE",
+  "set coverage",
+  "mean set size",
+  "ms / clip"
+ ],
+ "rows": [
+  [
+   "majority",
+   "always the commonest class",
+   "0.118 [0.100, 0.131]",
+   "0.200 [0.200, 0.200]",
+   "0.417 [0.333, 0.486]",
+   "0.045",
+   "1.000",
+   "5.00",
+   "0.00"
+  ],
+  [
+   "prior",
+   "random guess with the training frequencies",
+   "0.171 [0.135, 0.202]",
+   "0.190 [0.147, 0.238]",
+   "0.271 [0.222, 0.312]",
+   "0.045",
+   "1.000",
+   "5.00",
+   "0.00"
+  ],
+  [
+   "expert",
+   "ONSET's hand-written FACS prototypes (untrained)",
+   "0.655 [0.530, 0.747]",
+   "0.766 [0.680, 0.836]",
+   "0.639 [0.528, 0.736]",
+   "0.196",
+   "0.903",
+   "3.32",
+   "0.15"
+  ],
+  [
+   "linear",
+   "logistic regression: pattern + timing + AU evidence",
+   "0.756 [0.683, 0.813]",
+   "0.780 [0.714, 0.858]",
+   "0.792 [0.722, 0.833]",
+   "0.168",
+   "0.896",
+   "2.26",
+   "0.03"
+  ],
+  [
+   "graphnet",
+   "graph-temporal transformer over the 27 regions",
+   "0.691 [0.568, 0.792]",
+   "0.726 [0.608, 0.829]",
+   "0.701 [0.590, 0.819]",
+   "0.105",
+   "0.958",
+   "3.14",
+   "2.89"
+  ],
+  [
+   "chance",
+   "uniform guessing (expected)",
+   "0.186",
+   "0.200",
+   "0.417 (majority share)",
+   "",
+   "",
+   "",
+   ""
+  ]
+ ],
+ "best": "linear",
+ "models": {
+  "majority": {
+   "headline": {
+    "uf1": {
+     "value": 0.11764705882352941,
+     "lo": 0.1,
+     "hi": 0.1308411214953271,
+     "seed_sd": 0.0
+    },
+    "uar": {
+     "value": 0.2,
+     "lo": 0.2,
+     "hi": 0.2,
+     "seed_sd": 0.0
+    },
+    "accuracy": {
+     "value": 0.4166666666666667,
+     "lo": 0.3333333333333333,
+     "hi": 0.4861111111111111,
+     "seed_sd": 0.0
+    }
+   },
+   "per_class": [
+    {
+     "label": "happiness",
+     "support": 18,
+     "predicted": 0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0
+    },
+    {
+     "label": "disgust",
+     "support": 32,
+     "predicted": 0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0
+    },
+    {
+     "label": "surprise",
+     "support": 18,
+     "predicted": 0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0
+    },
+    {
+     "label": "repression",
+     "support": 16,
+     "predicted": 0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0
+    },
+    {
+     "label": "others",
+     "support": 60,
+     "predicted": 144,
+     "precision": 0.4166666666666667,
+     "recall": 1.0,
+     "f1": 0.5882352941176471
+    }
+   ],
+   "confusion": [
+    [
+     0,
+     0,
+     0,
+     0,
+     18
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     32
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     18
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     16
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     60
+    ]
+   ],
+   "calibration": {
+    "ece": 0.04544058110075836,
+    "nll": 1.5278693620832549,
+    "brier": 0.7522559333358434,
+    "bins": [
+     {
+      "lo": 0.30000000000000004,
+      "hi": 0.4,
+      "mean_p": 0.39392470267403995,
+      "frac": 0.6666666666666666,
+      "n": 12
+     },
+     {
+      "lo": 0.4,
+      "hi": 0.5,
+      "mean_p": 0.41871621295907335,
+      "frac": 0.3939393939393939,
+      "n": 132
+     }
+    ],
+    "temperature": null
+   },
+   "sets": {
+    "alpha": 0.1,
+    "coverage": 1.0,
+    "mean_size": 5.0,
+    "singleton_rate": 0.0,
+    "accuracy_when_singleton": null,
+    "full_set_rate": 1.0
+   },
+   "risk_coverage": [
+    {
+     "threshold": 0.0,
+     "coverage": 1.0,
+     "accuracy": 0.4166666666666667
+    },
+    {
+     "threshold": 0.4090750700704492,
+     "coverage": 0.9166666666666666,
+     "accuracy": 0.3939393939393939
+    },
+    {
+     "threshold": 0.4090750700704492,
+     "coverage": 0.9166666666666666,
+     "accuracy": 0.3939393939393939
+    },
+    {
+     "threshold": 0.4090750700704492,
+     "coverage": 0.9166666666666666,
+     "accuracy": 0.3939393939393939
+    },
+    {
+     "threshold": 0.4090750700704492,
+     "coverage": 0.9166666666666666,
+     "accuracy": 0.3939393939393939
+    },
+    {
+     "threshold": 0.4090750700704492,
+     "coverage": 0.9166666666666666,
+     "accuracy": 0.3939393939393939
+    },
+    {
+     "threshold": 0.4090750700704492,
+     "coverage": 0.9166666666666666,
+     "accuracy": 0.3939393939393939
+    },
+    {
+     "threshold": 0.4242254374668587,
+     "coverage": 0.4166666666666667,
+     "accuracy": 0.26666666666666666
+    },
+    {
+     "threshold": 0.4242254374668587,
+     "coverage": 0.4166666666666667,
+     "accuracy": 0.26666666666666666
+    },
+    {
+     "threshold": 0.4242254374668587,
+     "coverage": 0.4166666666666667,
+     "accuracy": 0.26666666666666666
+    },
+    {
+     "threshold": 0.43937580486326794,
+     "coverage": 0.16666666666666666,
+     "accuracy": 0.16666666666666666
+    }
+   ],
+   "latency": {
+    "inference_ms_per_clip": 0.001718930555622617,
+    "fit_seconds_per_fold": 0.0
+   },
+   "chance": {
+    "uf1": 0.1862692073218389,
+    "uar": 0.2,
+    "majority_accuracy": 0.4166666666666667
+   },
+   "n_parameters": null,
+   "label": "always the commonest class"
+  },
+  "prior": {
+   "headline": {
+    "uf1": {
+     "value": 0.17064276303406736,
+     "lo": 0.13470748969596513,
+     "hi": 0.2015181912599999,
+     "seed_sd": 0.010167484432030189
+    },
+    "uar": {
+     "value": 0.1897222222222222,
+     "lo": 0.14656977720555306,
+     "hi": 0.2384947405535641,
+     "seed_sd": 0.0003928371006591956
+    },
+    "accuracy": {
+     "value": 0.2708333333333333,
+     "lo": 0.2222222222222222,
+     "hi": 0.3125,
+     "seed_sd": 0.10803020268127808
+    }
+   },
+   "per_class": [
+    {
+     "label": "happiness",
+     "support": 18,
+     "predicted": 0,
+     "precision": 0.0,
+     "recall": 0.0,
+     "f1": 0.0
+    },
+    {
+     "label": "disgust",
+     "support": 32,
+     "predicted": 32,
+     "precision": 0.125,
+     "recall": 0.125,
+     "f1": 0.125
+    },
+    {
+     "label": "surprise",
+     "support": 18,
+     "predicted": 28,
+     "precision": 0.17857142857142858,
+     "recall": 0.2777777777777778,
+     "f1": 0.21739130434782608
+    },
+    {
+     "label": "repression",
+     "support": 16,
+     "predicted": 12,
+     "precision": 0.08333333333333333,
+     "recall": 0.0625,
+     "f1": 0.07142857142857142
+    },
+    {
+     "label": "others",
+     "support": 60,
+     "predicted": 72,
+     "precision": 0.4027777777777778,
+     "recall": 0.48333333333333334,
+     "f1": 0.4393939393939394
+    }
+   ],
+   "confusion": [
+    [
+     0,
+     3,
+     3,
+     1,
+     11
+    ],
+    [
+     0,
+     4,
+     5,
+     6,
+     17
+    ],
+    [
+     0,
+     5,
+     5,
+     0,
+     8
+    ],
+    [
+     0,
+     7,
+     1,
+     1,
+     7
+    ],
+    [
+     0,
+     13,
+     14,
+     4,
+     29
+    ]
+   ],
+   "calibration": {
+    "ece": 0.04544058110075836,
+    "nll": 1.5278693620832549,
+    "brier": 0.7522559333358434,
+    "bins": [
+     {
+      "lo": 0.30000000000000004,
+      "hi": 0.4,
+      "mean_p": 0.39392470267403995,
+      "frac": 0.6666666666666666,
+      "n": 12
+     },
+     {
+      "lo": 0.4,
+      "hi": 0.5,
+      "mean_p": 0.41871621295907335,
+      "frac": 0.3939393939393939,
+      "n": 132
+     }
+    ],
+    "temperature": null
+   },
+   "sets": {
+    "alpha": 0.1,
+    "coverage": 1.0,
+    "mean_size": 5.0,
+    "singleton_rate": 0.0,
+    "accuracy_when_singleton": null,
+    "full_set_rate": 1.0
+   },
+   "risk_coverage": [
+    {
+     "threshold": 0.0,
+     "coverage": 1.0,
+     "accuracy": 0.4166666666666667
+    },
+    {
+     "threshold": 0.4090750700704492,
+     "coverage": 0.9166666666666666,
+     "accuracy": 0.3939393939393939
+    },
+    {
+     "threshold": 0.4090750700704492,
+     "coverage": 0.9166666666666666,
+     "accuracy": 0.3939393939393939
+    },
+    {
+     "threshold": 0.4090750700704492,
+     "coverage": 0.9166666666666666,
+     "accuracy": 0.3939393939393939
+    },
+    {
+     "threshold": 0.4090750700704492,
+     "coverage": 0.9166666666666666,
+     "accuracy": 0.3939393939393939
+    },
+    {
+     "threshold": 0.4090750700704492,
+     "coverage": 0.9166666666666666,
+     "accuracy": 0.3939393939393939
+    },
+    {
+     "threshold": 0.4090750700704492,
+     "coverage": 0.9166666666666666,
+     "accuracy": 0.3939393939393939
+    },
+    {
+     "threshold": 0.4242254374668587,
+     "coverage": 0.4166666666666667,
+     "accuracy": 0.26666666666666666
+    },
+    {
+     "threshold": 0.4242254374668587,
+     "coverage": 0.4166666666666667,
+     "accuracy": 0.26666666666666666
+    },
+    {
+     "threshold": 0.4242254374668587,
+     "coverage": 0.4166666666666667,
+     "accuracy": 0.26666666666666666
+    },
+    {
+     "threshold": 0.43937580486326794,
+     "coverage": 0.16666666666666666,
+     "accuracy": 0.16666666666666666
+    }
+   ],
+   "latency": {
+    "inference_ms_per_clip": 0.0016430416665732155,
+    "fit_seconds_per_fold": 0.0
+   },
+   "chance": {
+    "uf1": 0.1862692073218389,
+    "uar": 0.2,
+    "majority_accuracy": 0.4166666666666667
+   },
+   "n_parameters": null,
+   "label": "random guess with the training frequencies"
+  },
+  "expert": {
+   "headline": {
+    "uf1": {
+     "value": 0.6554822954822954,
+     "lo": 0.5304218770951508,
+     "hi": 0.7466420975496045,
+     "seed_sd": 0.0
+    },
+    "uar": {
+     "value": 0.7655555555555555,
+     "lo": 0.6798191287878788,
+     "hi": 0.8360283489658489,
+     "seed_sd": 0.0
+    },
+    "accuracy": {
+     "value": 0.6388888888888888,
+     "lo": 0.5277777777777778,
+     "hi": 0.7361111111111112,
+     "seed_sd": 0.0
+    }
+   },
+   "per_class": [
+    {
+     "label": "happiness",
+     "support": 18,
+     "predicted": 38,
+     "precision": 0.42105263157894735,
+     "recall": 0.8888888888888888,
+     "f1": 0.5714285714285714
+    },
+    {
+     "label": "disgust",
+     "support": 32,
+     "predicted": 38,
+     "precision": 0.7368421052631579,
+     "recall": 0.875,
+     "f1": 0.8
+    },
+    {
+     "label": "surprise",
+     "support": 18,
+     "predicted": 30,
+     "precision": 0.5333333333333333,
+     "recall": 0.8888888888888888,
+     "f1": 0.6666666666666666
+    },
+    {
+     "label": "repression",
+     "support": 16,
+     "predicted": 20,
+     "precision": 0.7,
+     "recall": 0.875,
+     "f1": 0.7777777777777778
+    },
+    {
+     "label": "others",
+     "support": 60,
+     "predicted": 18,
+     "precision": 1.0,
+     "recall": 0.3,
+     "f1": 0.46153846153846156
+    }
+   ],
+   "confusion": [
+    [
+     16,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     0,
+     28,
+     0,
+     4,
+     0
+    ],
+    [
+     0,
+     0,
+     16,
+     2,
+     0
+    ],
+    [
+     0,
+     0,
+     2,
+     14,
+     0
+    ],
+    [
+     22,
+     10,
+     10,
+     0,
+     18
+    ]
+   ],
+   "calibration": {
+    "ece": 0.19583079808255785,
+    "nll": 1.148174258161859,
+    "brier": 0.5712293886567812,
+    "bins": [
+     {
+      "lo": 0.2,
+      "hi": 0.30000000000000004,
+      "mean_p": 0.2734792998742607,
+      "frac": 0.7777777777777778,
+      "n": 18
+     },
+     {
+      "lo": 0.30000000000000004,
+      "hi": 0.4,
+      "mean_p": 0.34977325128616865,
+      "frac": 0.6,
+      "n": 10
+     },
+     {
+      "lo": 0.4,
+      "hi": 0.5,
+      "mean_p": 0.45429724074384636,
+      "frac": 0.36363636363636365,
+      "n": 22
+     },
+     {
+      "lo": 0.5,
+      "hi": 0.6000000000000001,
+      "mean_p": 0.5584495111250802,
+      "frac": 0.4666666666666667,
+      "n": 30
+     },
+     {
+      "lo": 0.6000000000000001,
+      "hi": 0.7000000000000001,
+      "mean_p": 0.6414512900231925,
+      "frac": 0.7777777777777778,
+      "n": 18
+     },
+     {
+      "lo": 0.7000000000000001,
+      "hi": 0.8,
+      "mean_p": 0.7503634607117714,
+      "frac": 0.9166666666666666,
+      "n": 24
+     },
+     {
+      "lo": 0.8,
+      "hi": 0.9,
+      "mean_p": 0.8335502390118545,
+      "frac": 0.4,
+      "n": 10
+     },
+     {
+      "lo": 0.9,
+      "hi": 1.0,
+      "mean_p": 0.924276174312593,
+      "frac": 0.8333333333333334,
+      "n": 12
+     }
+    ],
+    "temperature": 0.9777445848719623
+   },
+   "sets": {
+    "alpha": 0.1,
+    "coverage": 0.9027777777777778,
+    "mean_size": 3.3194444444444446,
+    "singleton_rate": 0.1527777777777778,
+    "accuracy_when_singleton": 0.6363636363636364,
+    "full_set_rate": 0.375
+   },
+   "risk_coverage": [
+    {
+     "threshold": 0.0,
+     "coverage": 1.0,
+     "accuracy": 0.6388888888888888
+    },
+    {
+     "threshold": 0.29226312750627303,
+     "coverage": 0.9166666666666666,
+     "accuracy": 0.6363636363636364
+    },
+    {
+     "threshold": 0.36807779545329117,
+     "coverage": 0.8194444444444444,
+     "accuracy": 0.6101694915254238
+    },
+    {
+     "threshold": 0.4504068868766008,
+     "coverage": 0.7361111111111112,
+     "accuracy": 0.660377358490566
+    },
+    {
+     "threshold": 0.5057415157697602,
+     "coverage": 0.6388888888888888,
+     "accuracy": 0.6956521739130435
+    },
+    {
+     "threshold": 0.5677295178543914,
+     "coverage": 0.5555555555555556,
+     "accuracy": 0.725
+    },
+    {
+     "threshold": 0.5948604419421273,
+     "coverage": 0.4583333333333333,
+     "accuracy": 0.7575757575757576
+    },
+    {
+     "threshold": 0.6395076864083847,
+     "coverage": 0.375,
+     "accuracy": 0.7777777777777778
+    },
+    {
+     "threshold": 0.7277376460644619,
+     "coverage": 0.2916666666666667,
+     "accuracy": 0.7619047619047619
+    },
+    {
+     "threshold": 0.7628955315230583,
+     "coverage": 0.19444444444444445,
+     "accuracy": 0.6428571428571429
+    },
+    {
+     "threshold": 0.8682443197362132,
+     "coverage": 0.1111111111111111,
+     "accuracy": 0.625
+    }
+   ],
+   "latency": {
+    "inference_ms_per_clip": 0.15017904166647614,
+    "fit_seconds_per_fold": 0.0
+   },
+   "chance": {
+    "uf1": 0.1862692073218389,
+    "uar": 0.2,
+    "majority_accuracy": 0.4166666666666667
+   },
+   "n_parameters": null,
+   "label": "ONSET's hand-written FACS prototypes (untrained)"
+  },
+  "linear": {
+   "headline": {
+    "uf1": {
+     "value": 0.7561084529505582,
+     "lo": 0.6834354300403067,
+     "hi": 0.8133346646473584,
+     "seed_sd": 0.0
+    },
+    "uar": {
+     "value": 0.7797222222222222,
+     "lo": 0.7143392217101894,
+     "hi": 0.8575197281167108,
+     "seed_sd": 0.0
+    },
+    "accuracy": {
+     "value": 0.7916666666666666,
+     "lo": 0.7222222222222222,
+     "hi": 0.8333333333333334,
+     "seed_sd": 0.0
+    }
+   },
+   "per_class": [
+    {
+     "label": "happiness",
+     "support": 18,
+     "predicted": 20,
+     "precision": 0.7,
+     "recall": 0.7777777777777778,
+     "f1": 0.7368421052631579
+    },
+    {
+     "label": "disgust",
+     "support": 32,
+     "predicted": 34,
+     "precision": 0.8823529411764706,
+     "recall": 0.9375,
+     "f1": 0.9090909090909091
+    },
+    {
+     "label": "surprise",
+     "support": 18,
+     "predicted": 20,
+     "precision": 0.6,
+     "recall": 0.6666666666666666,
+     "f1": 0.631578947368421
+    },
+    {
+     "label": "repression",
+     "support": 16,
+     "predicted": 20,
+     "precision": 0.6,
+     "recall": 0.75,
+     "f1": 0.6666666666666666
+    },
+    {
+     "label": "others",
+     "support": 60,
+     "predicted": 50,
+     "precision": 0.92,
+     "recall": 0.7666666666666667,
+     "f1": 0.8363636363636363
+    }
+   ],
+   "confusion": [
+    [
+     14,
+     0,
+     2,
+     0,
+     2
+    ],
+    [
+     0,
+     30,
+     0,
+     0,
+     2
+    ],
+    [
+     2,
+     0,
+     12,
+     4,
+     0
+    ],
+    [
+     0,
+     0,
+     4,
+     12,
+     0
+    ],
+    [
+     4,
+     4,
+     2,
+     4,
+     46
+    ]
+   ],
+   "calibration": {
+    "ece": 0.16775668681464995,
+    "nll": 0.881962085909363,
+    "brier": 0.38304659735502655,
+    "bins": [
+     {
+      "lo": 0.30000000000000004,
+      "hi": 0.4,
+      "mean_p": 0.35970770972673993,
+      "frac": 0.5,
+      "n": 4
+     },
+     {
+      "lo": 0.4,
+      "hi": 0.5,
+      "mean_p": 0.43523725094487814,
+      "frac": 0.7142857142857143,
+      "n": 14
+     },
+     {
+      "lo": 0.5,
+      "hi": 0.6000000000000001,
+      "mean_p": 0.5602997677465189,
+      "frac": 0.5263157894736842,
+      "n": 19
+     },
+     {
+      "lo": 0.6000000000000001,
+      "hi": 0.7000000000000001,
+      "mean_p": 0.6510917901949148,
+      "frac": 0.8571428571428571,
+      "n": 28
+     },
+     {
+      "lo": 0.7000000000000001,
+      "hi": 0.8,
+      "mean_p": 0.7546599506965007,
+      "frac": 1.0,
+      "n": 30
+     },
+     {
+      "lo": 0.8,
+      "hi": 0.9,
+      "mean_p": 0.8440209879091446,
+      "frac": 0.7307692307692307,
+      "n": 26
+     },
+     {
+      "lo": 0.9,
+      "hi": 1.0,
+      "mean_p": 0.9551844620424287,
+      "frac": 0.8260869565217391,
+      "n": 23
+     }
+    ],
+    "temperature": 1.0511374101894504
+   },
+   "sets": {
+    "alpha": 0.1,
+    "coverage": 0.8958333333333334,
+    "mean_size": 2.2569444444444446,
+    "singleton_rate": 0.2569444444444444,
+    "accuracy_when_singleton": 0.8918918918918919,
+    "full_set_rate": 0.013888888888888888
+   },
+   "risk_coverage": [
+    {
+     "threshold": 0.0,
+     "coverage": 1.0,
+     "accuracy": 0.7916666666666666
+    },
+    {
+     "threshold": 0.45166171086914464,
+     "coverage": 0.9097222222222222,
+     "accuracy": 0.816793893129771
+    },
+    {
+     "threshold": 0.5601581365628165,
+     "coverage": 0.8194444444444444,
+     "accuracy": 0.8389830508474576
+    },
+    {
+     "threshold": 0.6048571672552597,
+     "coverage": 0.7291666666666666,
+     "accuracy": 0.8571428571428571
+    },
+    {
+     "threshold": 0.6558029378573934,
+     "coverage": 0.6388888888888888,
+     "accuracy": 0.8478260869565217
+    },
+    {
+     "threshold": 0.7005265451919463,
+     "coverage": 0.5486111111111112,
+     "accuracy": 0.8607594936708861
+    },
+    {
+     "threshold": 0.7475049429996031,
+     "coverage": 0.4583333333333333,
+     "accuracy": 0.8333333333333334
+    },
+    {
+     "threshold": 0.7813003344592473,
+     "coverage": 0.3680555555555556,
+     "accuracy": 0.7924528301886793
+    },
+    {
+     "threshold": 0.8311376578840189,
+     "coverage": 0.2847222222222222,
+     "accuracy": 0.8048780487804879
+    },
+    {
+     "threshold": 0.8784921561660888,
+     "coverage": 0.19444444444444445,
+     "accuracy": 0.8571428571428571
+    },
+    {
+     "threshold": 0.9456076107585702,
+     "coverage": 0.10416666666666667,
+     "accuracy": 0.8666666666666667
+    }
+   ],
+   "latency": {
+    "inference_ms_per_clip": 0.029388263888898945,
+    "fit_seconds_per_fold": 0.25338034828503925
+   },
+   "chance": {
+    "uf1": 0.1862692073218389,
+    "uar": 0.2,
+    "majority_accuracy": 0.4166666666666667
+   },
+   "n_parameters": null,
+   "label": "logistic regression: pattern + timing + AU evidence"
+  },
+  "graphnet": {
+   "headline": {
+    "uf1": {
+     "value": 0.690749887437194,
+     "lo": 0.5678982127381551,
+     "hi": 0.791679691675364,
+     "seed_sd": 0.004555856472985474
+    },
+    "uar": {
+     "value": 0.7261111111111112,
+     "lo": 0.6076798813931167,
+     "hi": 0.8289937842175745,
+     "seed_sd": 0.010999438818457398
+    },
+    "accuracy": {
+     "value": 0.7013888888888888,
+     "lo": 0.5901041666666667,
+     "hi": 0.8194444444444444,
+     "seed_sd": 0.009820927516479871
+    }
+   },
+   "per_class": [
+    {
+     "label": "happiness",
+     "support": 18,
+     "predicted": 20,
+     "precision": 0.6,
+     "recall": 0.6666666666666666,
+     "f1": 0.631578947368421
+    },
+    {
+     "label": "disgust",
+     "support": 32,
+     "predicted": 36,
+     "precision": 0.7222222222222222,
+     "recall": 0.8125,
+     "f1": 0.7647058823529411
+    },
+    {
+     "label": "surprise",
+     "support": 18,
+     "predicted": 19,
+     "precision": 0.6842105263157895,
+     "recall": 0.7222222222222222,
+     "f1": 0.7027027027027027
+    },
+    {
+     "label": "repression",
+     "support": 16,
+     "predicted": 24,
+     "precision": 0.5416666666666666,
+     "recall": 0.8125,
+     "f1": 0.65
+    },
+    {
+     "label": "others",
+     "support": 60,
+     "predicted": 45,
+     "precision": 0.8222222222222222,
+     "recall": 0.6166666666666667,
+     "f1": 0.7047619047619048
+    }
+   ],
+   "confusion": [
+    [
+     12,
+     1,
+     2,
+     0,
+     3
+    ],
+    [
+     3,
+     26,
+     0,
+     0,
+     3
+    ],
+    [
+     1,
+     2,
+     13,
+     2,
+     0
+    ],
+    [
+     0,
+     0,
+     1,
+     13,
+     2
+    ],
+    [
+     4,
+     7,
+     3,
+     9,
+     37
+    ]
+   ],
+   "calibration": {
+    "ece": 0.10482728650529748,
+    "nll": 0.8995287912901677,
+    "brier": 0.43497656865889817,
+    "bins": [
+     {
+      "lo": 0.2,
+      "hi": 0.30000000000000004,
+      "mean_p": 0.27644664326674623,
+      "frac": 0.0,
+      "n": 1
+     },
+     {
+      "lo": 0.30000000000000004,
+      "hi": 0.4,
+      "mean_p": 0.3547213692697791,
+      "frac": 0.3076923076923077,
+      "n": 13
+     },
+     {
+      "lo": 0.4,
+      "hi": 0.5,
+      "mean_p": 0.4500169878762171,
+      "frac": 0.5,
+      "n": 22
+     },
+     {
+      "lo": 0.5,
+      "hi": 0.6000000000000001,
+      "mean_p": 0.5456403703729069,
+      "frac": 0.8148148148148148,
+      "n": 27
+     },
+     {
+      "lo": 0.6000000000000001,
+      "hi": 0.7000000000000001,
+      "mean_p": 0.651987138020012,
+      "frac": 0.78125,
+      "n": 32
+     },
+     {
+      "lo": 0.7000000000000001,
+      "hi": 0.8,
+      "mean_p": 0.7492490374186872,
+      "frac": 0.7619047619047619,
+      "n": 21
+     },
+     {
+      "lo": 0.8,
+      "hi": 0.9,
+      "mean_p": 0.8418629024879347,
+      "frac": 0.8333333333333334,
+      "n": 18
+     },
+     {
+      "lo": 0.9,
+      "hi": 1.0,
+      "mean_p": 0.9284254503984217,
+      "frac": 0.8,
+      "n": 10
+     }
+    ],
+    "temperature": 1.5672313736048036
+   },
+   "sets": {
+    "alpha": 0.1,
+    "coverage": 0.9583333333333334,
+    "mean_size": 3.138888888888889,
+    "singleton_rate": 0.14583333333333334,
+    "accuracy_when_singleton": 0.8095238095238095,
+    "full_set_rate": 0.2708333333333333
+   },
+   "risk_coverage": [
+    {
+     "threshold": 0.0,
+     "coverage": 1.0,
+     "accuracy": 0.7013888888888888
+    },
+    {
+     "threshold": 0.39481189167831116,
+     "coverage": 0.9097222222222222,
+     "accuracy": 0.7480916030534351
+    },
+    {
+     "threshold": 0.45577616978588525,
+     "coverage": 0.8194444444444444,
+     "accuracy": 0.7627118644067796
+    },
+    {
+     "threshold": 0.5138029613897338,
+     "coverage": 0.7291666666666666,
+     "accuracy": 0.8
+    },
+    {
+     "threshold": 0.5507081773150232,
+     "coverage": 0.6388888888888888,
+     "accuracy": 0.8043478260869565
+    },
+    {
+     "threshold": 0.6061928206888165,
+     "coverage": 0.5486111111111112,
+     "accuracy": 0.7974683544303798
+    },
+    {
+     "threshold": 0.6579958198327888,
+     "coverage": 0.4583333333333333,
+     "accuracy": 0.803030303030303
+    },
+    {
+     "threshold": 0.6883541627573683,
+     "coverage": 0.3680555555555556,
+     "accuracy": 0.7924528301886793
+    },
+    {
+     "threshold": 0.745320604886545,
+     "coverage": 0.2847222222222222,
+     "accuracy": 0.8536585365853658
+    },
+    {
+     "threshold": 0.8006672526851772,
+     "coverage": 0.19444444444444445,
+     "accuracy": 0.8214285714285714
+    },
+    {
+     "threshold": 0.8563803907000129,
+     "coverage": 0.10416666666666667,
+     "accuracy": 0.8666666666666667
+    }
+   ],
+   "latency": {
+    "inference_ms_per_clip": 2.891065131939917,
+    "fit_seconds_per_fold": 48.04824925462405
+   },
+   "chance": {
+    "uf1": 0.1862692073218389,
+    "uar": 0.2,
+    "majority_accuracy": 0.4166666666666667
+   },
+   "n_parameters": 29062,
+   "label": "graph-temporal transformer over the 27 regions"
+  }
+ },
+ "pairwise": [
+  {
+   "a": "expert",
+   "b": "linear",
+   "metric": "UF1",
+   "difference": -0.10062615746826276,
+   "p": 0.0864567716141929,
+   "n_subjects": 12,
+   "p_holm": 0.2593703148425787
+  },
+  {
+   "a": "expert",
+   "b": "graphnet",
+   "metric": "UF1",
+   "difference": -0.03526759195489859,
+   "p": 0.5167416291854073,
+   "n_subjects": 12,
+   "p_holm": 0.5167416291854073
+  },
+  {
+   "a": "linear",
+   "b": "graphnet",
+   "metric": "UF1",
+   "difference": 0.06535856551336416,
+   "p": 0.20339830084957522,
+   "n_subjects": 12,
+   "p_holm": 0.40679660169915044
+  },
+  {
+   "a": "expert",
+   "b": "majority",
+   "metric": "UF1",
+   "difference": 0.537835236658766,
+   "p": 0.0009995002498750624,
+   "n_subjects": 12,
+   "p_holm": 0.005997001499250375
+  },
+  {
+   "a": "linear",
+   "b": "majority",
+   "metric": "UF1",
+   "difference": 0.6384613941270287,
+   "p": 0.0009995002498750624,
+   "n_subjects": 12,
+   "p_holm": 0.005997001499250375
+  },
+  {
+   "a": "graphnet",
+   "b": "majority",
+   "metric": "UF1",
+   "difference": 0.5731028286136646,
+   "p": 0.0009995002498750624,
+   "n_subjects": 12,
+   "p_holm": 0.005997001499250375
+  }
+ ],
+ "controls": {
+  "shuffled_labels": {
+   "name": "shuffled_labels",
+   "uf1_runs": [
+    0.17714285714285713,
+    0.17795977011494252
+   ],
+   "uf1_mean": 0.1775513136288998,
+   "uf1_sd": 0.0005776447022008343,
+   "chance_uf1": 0.1862692073218389,
+   "passed": true,
+   "threshold": 0.2662692073218389,
+   "real_uf1": 0.7561084529505582,
+   "margin_over_shuffled": 0.5785571393216584,
+   "reading": "training labels were permuted; the held-out score should sit at chance (0.19). It is 0.18 - as expected."
+  },
+  "identity_probe": {
+   "name": "identity_probe",
+   "accuracy": 0.4027777777777778,
+   "chance": 0.08333333333333333,
+   "majority_share": 0.08333333333333333,
+   "n_subjects": 12,
+   "n_clips": 72,
+   "reading": "subject identity is decoded from the features at 40% against 8% by chance (12 subjects): the features carry identity, so a clip-level split would partly reward recognising faces. The folds here are subject-disjoint, which is what keeps this from inflating the reported numbers"
+  },
+  "leakage_gap": {
+   "name": "leakage_gap",
+   "uf1_subject_disjoint": 0.7280737340308174,
+   "uf1_clip_level_INVALID": 0.6883614264419217,
+   "inflation": -0.03971230758889577,
+   "chance_uf1": 0.1862692073218389,
+   "k": 5,
+   "reading": "with clip-level folds the same model scores UF1 0.69 against 0.73 with subject-disjoint folds (difference -0.04): no flattering showed up here, which on a small or synthetic set can be noise and does not make a clip-level split safe. Only the subject-disjoint number says anything about new people."
+  }
+ },
+ "latency": {
+  "feature_extraction_s_per_clip": {
+   "mean": 1.3964650796519384,
+   "median": 1.3898186683654785,
+   "p90": 1.6223918914794921
+  },
+  "note": "feature extraction = landmarks + stabilisation + dense flow + AU engine on the clip; it dominates model inference"
+ },
+ "caveat": "Numbers are subject-independent and pooled over folds; intervals resample subjects. They describe this dataset, this label scheme and these annotations - not people in general, and not deception or emotion detection.",
+ "graph_config": {
+  "d": 32,
+  "heads": 4,
+  "layers": 2,
+  "dropout": 0.2,
+  "epochs": 40,
+  "batch": 16,
+  "lr": 0.003,
+  "weight_decay": 0.01,
+  "patience": 0,
+  "members": 2,
+  "val_fraction": 0.2,
+  "label_smoothing": 0.05,
+  "threads": 2,
+  "readout": "region",
+  "min_steps": 180
+ },
+ "versions": {
+  "python": "3.13.16",
+  "platform": "Linux-6.18.44-fc-v378-x86_64-with-glibc2.39",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "sklearn": "1.9.1",
+  "pandas": "3.0.5",
+  "cv2": "5.0.0",
+  "torch": "2.14.1+cu130",
+  "openpyxl": "3.1.5"
+ }
+}

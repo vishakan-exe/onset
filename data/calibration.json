@@ -1,0 +1,67 @@
+{
+ "version": 2,
+ "created": "2026-11-14T11:13:17",
+ "eta": 0.3,
+ "temper": 0.5,
+ "size_prior": [
+  0.08,
+  0.52,
+  0.3,
+  0.1
+ ],
+ "spot_threshold": 5.25,
+ "t_op": 5.0,
+ "mda_scale": 2.0780573198855086,
+ "mda90_scale": 7.128229146222468,
+ "mda_edges": [
+  0.6,
+  1.0,
+  1.6,
+  2.5
+ ],
+ "amp_interval_k": 2.4420615555390315,
+ "conformal": {
+  "megc3": {
+   "alpha": 0.1,
+   "qhat": 0.6897683787490888,
+   "n_cal": 98
+  },
+  "casme2_5": {
+   "alpha": 0.1,
+   "qhat": 0.8238053537085837,
+   "n_cal": 98
+  },
+  "basic7": {
+   "alpha": 0.1,
+   "qhat": 0.861951030023907,
+   "n_cal": 98
+  }
+ },
+ "provenance": {
+  "kind": "synthetic phantom corpus",
+  "clips": 240,
+  "seed": 1,
+  "split": {
+   "calibration": "A-C",
+   "test": "D-F"
+  }
+ },
+ "summary": {
+  "corpus": "240 phantom clips, 372 scripted movements, 42 movement-free clips; 6 face identities (A-C calibration, D-F test)",
+  "spot_threshold": 5.25,
+  "recall_test": 0.4919786096256685,
+  "recall_loose_test": 0.5401069518716578,
+  "fa_per_10s_test": 0.4334828101644245,
+  "precision_test": 0.7603305785123967,
+  "au_f1_test": 0.7681660899653979,
+  "au_exact_set_test": 0.5346534653465347,
+  "au_ece_test": 0.030646229590598883,
+  "au_ece_default_test": 0.06593460603202152,
+  "mda_scale": 2.0780573198855086,
+  "mda_scale_cal": 1.7498301550329196,
+  "mda_scale_test": 2.409271079164189,
+  "amp_coverage_test": 0.9369369369369369,
+  "amp_ratio_median": 0.8173253669051124,
+  "note": "synthetic phantoms: instrument calibration, not accuracy on human faces"
+ }
+}
